@@ -244,6 +244,42 @@ public class PageController {
 		
 		return modelAndView;
 	}
+	@RequestMapping("/callNewJsp")
+	ModelAndView callNewJsp(ModelAndView modelAndView, Model model) {
+		
+		modelAndView.setViewName("app.callNewJsp");
+		
+		StatusUpdate statusUpdate = new StatusUpdate();
+		
+		modelAndView.getModel().put("statusUpdate", statusUpdate);
+		// **********************************
+		 HttpHeaders headers = new HttpHeaders();
+		 
+	        headers.setAccept(Arrays.asList(new MediaType[] { MediaType.APPLICATION_JSON }));
+	        // Request to return JSON format
+	        headers.setContentType(MediaType.APPLICATION_JSON);
+	        headers.set("my_other_key", "my_other_value");
+	 
+	        // HttpEntity<String>: To get result as String.
+	        HttpEntity<Note> entity = new HttpEntity<Note>(headers);
+	 
+	        // RestTemplate
+	        RestTemplate restTemplate = new RestTemplate();
+	 
+	        // Send request with GET method, and Headers.
+	        ResponseEntity<Note> response = restTemplate.exchange(URL_NOTES, //
+	                HttpMethod.GET, entity, Note.class);
+	 
+	        Note result = response.getBody();
+	 
+	        //System.out.println(result);
+	        
+	        modelAndView.getModel().put("noteObject", result);
+	        
+	        model.addAttribute("specialMessage"," testing is done");
+		
+		return modelAndView;
+	}
 	
 	
 }

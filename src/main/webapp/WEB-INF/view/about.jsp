@@ -4,7 +4,6 @@
 <%@page import="com.vserv.sample.model.Note"%>
 <%@page import="org.springframework.http.HttpEntity"%>
 <%@page import="org.springframework.http.MediaType"%>
-<%@page import="java.util.Arrays"%>
 <%@page import="org.springframework.http.HttpHeaders"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

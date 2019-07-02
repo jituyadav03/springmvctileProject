@@ -24,7 +24,10 @@
 					
 					<input type="submit" name="submit" value="Add Status" />				
 				</form>
-			
+				
+			<form>
+					<a  href="${contextRoot}/callNewJsp"> call jsp Without tiles</a> </>				
+				</form>
 			</div>
 		
 		
